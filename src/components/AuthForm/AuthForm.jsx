@@ -12,7 +12,7 @@ const AuthForm = () => {
     })
 
     const handleAuth = () => {
-        if(!inputs.email || !inputs.password ){
+        if (!inputs.email || !inputs.password) {
             alert("information missing")
             return
         }
@@ -21,6 +21,7 @@ const AuthForm = () => {
 
     return (
         <>
+            {/*main auth block*/}
             <Box border={"1px solid gray"} borderRadius={4} padding={5}>
                 <VStack spacing={4}>
                     <Image src='/logo.png' h={24} cursor={"pointer"} alt='instagram' />
@@ -52,6 +53,7 @@ const AuthForm = () => {
                 </VStack>
             </Box>
 
+            {/*log in/sign up switch bottom panel*/}
             <Box border={"1px solid gray"} borderRadius={4} padding={5}>
                 <Flex alignItems={"center"} justifyContent={"center"}>
                     <Box mx={2} fontSize={14}>

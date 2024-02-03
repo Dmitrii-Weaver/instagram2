@@ -5,6 +5,8 @@ import { CreatePostLogo, InstagramLogo, InstagramMobileLogo, NotificationsLogo, 
 import { AiFillHome } from "react-icons/ai"
 import { BiLogOut } from "react-icons/bi"
 
+
+/* logos import */
 const Sidebar = () => {
   const sidebarItems = [
     {
@@ -33,6 +35,9 @@ const Sidebar = () => {
 
   return (
     <Box h={"100vh"} borderRight={"1px solid"} borderColor={"WhiteAlpha.300"} py={8} position={"sticky"} top={0} left={0} px={{ base: 2, md: 4 }}>
+
+      {/* Sidebar top*/}
+
       <Flex direction={"column"} gap={10} w={"full"} h={"full"}>
         <Link to={"/"} as={RouterLink} pl={2} display={{ base: "none", md: "block" }} cursor={"pointer"}>
           <InstagramLogo />
@@ -50,6 +55,10 @@ const Sidebar = () => {
             </Tooltip>
           ))}
         </Flex>
+
+
+        {/* Sidebar bottom*/}
+
         <Tooltip hasArrow label={"Logout"} placement='right' ml={1} openDelay={500} display={{ base: 'block' }}>
           <Link marginTop={"auto"} display={"flex"} to={"/auth"} as={RouterLink} alignItems={"center"} gap={4} _hover={{ bg: "whiteAlpha.400" }} borderRadius={6} p={2} w={{ base: 10, md: "full" }} justifyContent={{ base: "center", md: "flex-start" }}>
             <BiLogOut size={25} />

@@ -7,12 +7,13 @@ const PageLayout = ({ children }) => {
   const { pathname } = useLocation()
   return (
     <Flex>
+      {/*sidebar*/}
       {pathname !== "/auth" ? (
         <Box w={{ base: "70px", md: "240px" }}>
           <Sidebar />
         </Box>) : null}
 
-      {/*right content*/}
+      {/*main content*/}
       <Box flex={1} w={{ base: "calc(100% - 70px)", md: "calc(100% - 240px)" }}>
         {children}
       </Box>
