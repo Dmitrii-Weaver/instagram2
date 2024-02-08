@@ -2,7 +2,7 @@ import { Box, Button, Flex, Input, InputGroup, InputRightElement, Text } from '@
 import React, { useState } from 'react'
 import { CommentLogo, NotificationsLogo, SearchLogo, UnlikeLogo } from '../../assets/constants'
 
-const Postfooter = () => {
+const Postfooter = ({username}) => {
   const [liked, setLiked] = useState(false)
   const [likes, setLikes] = useState(120)
 
@@ -18,7 +18,7 @@ const Postfooter = () => {
   }
 
   return (
-    <Box my={2}>
+    <Box mb={10}>
       <Flex alignItems={"center"} gap={4} w={"full"} pt={0} mb={2} mt={4}>
         <Box onClick={handleLike} cursor={"pointer"} fontSize={18}>
           {!liked ? (<NotificationsLogo />) : (<UnlikeLogo />)}
@@ -32,7 +32,7 @@ const Postfooter = () => {
       </Text>
 
       <Text fontSize="sm" fontWeight={700}>
-        username1 {" "}
+        {username} {" "}
         <Text as="span" fontWeight={400}>
           comment lmao
         </Text>
