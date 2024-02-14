@@ -25,7 +25,6 @@ const ProfileTabs = () => {
         </Box>
         <Text fontSize={12} display={{ base: "none", sm: "block" }}>Likes</Text>
       </Flex>
-
     </Flex>
   )
 }
