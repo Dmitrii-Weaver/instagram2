@@ -1,8 +1,9 @@
-import { Avatar, Box, Flex, GridItem, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Text, useDisclosure } from '@chakra-ui/react'
+import { Avatar, Box, Divider, Flex, GridItem, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Text, VStack, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { AiFillHeart } from "react-icons/ai"
 import { FaComment } from "react-icons/fa"
 import { MdDelete } from "react-icons/md"
+import Comment from '../Comments/Comment'
 
 const ProfilePost = ({ img }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -51,6 +52,7 @@ const ProfilePost = ({ img }) => {
         <ModalContent>
           <ModalCloseButton />
           <ModalBody bg={"black"} pb={5}>
+
             <Flex gap={4} w={{ base: "90%", sm: "70%", md: "full" }} mx={"auto"}>
               <Box borderRadius={4} overflow={"hidden"} border={"1px solid"} borderColor={"whiteAlpha.300"} flex={1.5}>
                 <Image src={img} alt='profile post' />
@@ -65,6 +67,16 @@ const ProfilePost = ({ img }) => {
                     <MdDelete size={20} cursor={"pointer"} />
                   </Box>
                 </Flex>
+
+                <Divider my={4} bg={"gray.500"} />
+
+                <VStack w={"full"} alignItems={"start"} maxH={"350px"} overflowY={"auto"}>
+                  <Comment createdAt="5 minutes ago" username="AnotherUser2" pfp="/1125.png" text="lmfao what is this!!1!!??+?" />
+                  <Comment createdAt="1 day ago" username="_username1" pfp="/profilepic.png" text="comment" />
+                  <Comment createdAt="2 days ago" username="User1123" pfp="/1123.png" text="follow me, I'm cool" />
+                </VStack>
+
+                <Divider my={4} bg={"gray.500"} />
               </Flex>
             </Flex>
 
