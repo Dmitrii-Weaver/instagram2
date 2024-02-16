@@ -4,6 +4,7 @@ import { AiFillHeart } from "react-icons/ai"
 import { FaComment } from "react-icons/fa"
 import { MdDelete } from "react-icons/md"
 import Comment from '../Comments/Comment'
+import PostFooter from "../Feedposts/Postfooter"
 
 const ProfilePost = ({ img }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -77,6 +78,8 @@ const ProfilePost = ({ img }) => {
                 </VStack>
 
                 <Divider my={4} bg={"gray.500"} />
+
+                <PostFooter isProfilePage={true} />
               </Flex>
             </Flex>
 
