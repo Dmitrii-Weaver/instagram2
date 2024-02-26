@@ -6,9 +6,6 @@ import Gauth from './Gauth'
 
 const AuthForm = () => {
     const [isLogin, setIsLogin] = useState(true)
-
-
-
     return (
         <>
             {/*main auth block*/}
