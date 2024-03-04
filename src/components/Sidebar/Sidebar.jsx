@@ -6,7 +6,6 @@ import { AiFillHome } from "react-icons/ai"
 import { BiLogOut } from "react-icons/bi"
 import useLogout from '../../hooks/useLogout'
 
-
 /* logos import */
 const Sidebar = () => {
   const sidebarItems = [
@@ -58,7 +57,6 @@ const Sidebar = () => {
             </Tooltip>
           ))}
         </Flex>
-
 
         {/* Sidebar bottom*/}
 

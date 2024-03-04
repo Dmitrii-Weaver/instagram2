@@ -11,7 +11,6 @@ const ProfilePosts = () => {
     }, 2000)
   }, [])
 
-
   return (
     <Grid templateColumns={{
       sm: "repeat(1, 1fr)",

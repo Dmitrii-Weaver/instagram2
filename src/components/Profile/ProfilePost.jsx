@@ -86,6 +86,7 @@ const ProfilePost = ({ img }) => {
           </ModalBody>
         </ModalContent>
       </Modal>
+      
     </>
   )
 }

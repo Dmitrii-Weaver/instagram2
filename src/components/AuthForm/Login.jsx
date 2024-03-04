@@ -9,7 +9,6 @@ const Login = () => {
         confirmPassword: ""
     })
 
-
     return (
         <>
             <Input placeholder='Email' type='email' fontSize={14}

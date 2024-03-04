@@ -3,7 +3,6 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage"
 
-
 const firebaseConfig = {
     apiKey: "AIzaSyBL54vqP_YkZ2PsNyFZLfBovlnHQmcV2Gw",
     authDomain: "insta-clone-76ea9.firebaseapp.com",
