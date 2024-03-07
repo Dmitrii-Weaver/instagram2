@@ -6,6 +6,8 @@ import { auth } from '../../firebase/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import Navbar from '../../components/Navbar/Navbar'
 
+//page layout
+
 const PageLayout = ({ children }) => {
   const { pathname } = useLocation()
   const [user, loading] = useAuthState(auth)

@@ -4,6 +4,7 @@ import useLogout from "../../hooks/useLogout"
 import React from 'react'
 import useAuthStore from '../../store/authStore'
 
+//suggested users header
 
 const SuggestedHeader = () => {
     const { handleLogout, isLoggingOut } = useLogout()

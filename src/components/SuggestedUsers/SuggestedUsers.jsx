@@ -3,6 +3,8 @@ import React from 'react'
 import SuggestedHeader from './SuggestedHeader'
 import SuggestedUser from './SuggestedUser'
 
+//desplays a list of suggested users
+
 const SuggestedUsers = () => {
     return (
         <VStack py={8} px={6} gap={4}>

@@ -3,6 +3,8 @@ import {auth} from "../firebase/firebase"
 import useShowToast from "./useShowToast"
 import useAuthStore from '../store/authStore'
 
+//custom logout hook
+
 const useLogout = () => {
     const [signOut, isLoggingOut, error] = useSignOut(auth)
     const showToast = useShowToast()

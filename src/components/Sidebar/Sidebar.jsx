@@ -6,6 +6,8 @@ import { AiFillHome } from "react-icons/ai"
 import { BiLogOut } from "react-icons/bi"
 import useLogout from '../../hooks/useLogout'
 
+//main sidebar with navigation
+
 /* logos import */
 const Sidebar = () => {
   const sidebarItems = [

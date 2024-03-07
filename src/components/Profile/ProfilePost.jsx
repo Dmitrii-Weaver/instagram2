@@ -6,6 +6,8 @@ import { MdDelete } from "react-icons/md"
 import Comment from '../Comments/Comment'
 import PostFooter from "../Feedposts/Postfooter"
 
+//profile post template
+
 const ProfilePost = ({ img }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (

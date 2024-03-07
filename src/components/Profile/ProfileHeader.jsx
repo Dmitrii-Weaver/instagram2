@@ -1,6 +1,8 @@
 import { Avatar, AvatarGroup, Button, Flex, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 
+//profile header, got the main profile info
+
 const ProfileHeader = () => {
     return (
         <Flex gap={{ base: 4, sm: 10 }} py={10} direction={{ base: "column", sm: "row" }}>

@@ -3,6 +3,7 @@ import { Alert, AlertIcon, Button, Input, InputGroup, InputRightElement } from '
 import React, { useState } from 'react'
 import useSignupWithEmailAndPassword from "../../hooks/useSignupWithEmailAndPassword"
 
+//Default signup component
 
 const Signup = () => {
     const [inputs, setInputs] = useState({

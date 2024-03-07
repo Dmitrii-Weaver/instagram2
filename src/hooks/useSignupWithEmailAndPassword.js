@@ -4,6 +4,8 @@ import { collection, doc, getDocs, query, setDoc, where } from "firebase/firesto
 import useShowToast from "./useShowToast";
 import useAuthStore from "../store/authStore";
 
+//custom signup hook
+
 const useSignupWithEmailAndPassword = () => {
 
     const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth);

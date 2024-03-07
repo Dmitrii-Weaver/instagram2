@@ -2,6 +2,8 @@ import { Box, Button, Flex, Input, InputGroup, InputRightElement, Text } from '@
 import React, { useState } from 'react'
 import { CommentLogo, NotificationsLogo, SearchLogo, UnlikeLogo } from '../../assets/constants'
 
+//post footer : likes, comments, etc.
+
 const Postfooter = ({ username, isProfilePage }) => {
   const [liked, setLiked] = useState(false)
   const [likes, setLikes] = useState(120)

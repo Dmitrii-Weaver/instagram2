@@ -2,6 +2,8 @@ import { Box, Container, Flex, Skeleton, SkeletonCircle, VStack } from '@chakra-
 import React, { useEffect, useState } from 'react'
 import Feedpost from './Feedpost'
 
+//Display posts in the feed
+
 const Feedposts = () => {
   const [isLoading, setIsLoading] = useState(true)
 

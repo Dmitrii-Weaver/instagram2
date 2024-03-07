@@ -1,5 +1,7 @@
 import { useToast } from '@chakra-ui/react'
 
+//toast display hook/template
+
 const useShowToast = () => {
     const toast = useToast()
     const showToast = (title, desc, status) => {

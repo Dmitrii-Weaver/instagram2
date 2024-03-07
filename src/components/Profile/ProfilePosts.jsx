@@ -2,6 +2,8 @@ import { Box, Grid, Skeleton, VStack } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import ProfilePost from './ProfilePost'
 
+//posts created by the user and displayed in their profile
+
 const ProfilePosts = () => {
   const [isloading, setIsLoading] = useState(true)
 

@@ -3,6 +3,8 @@ import Postheader from './Postheader'
 import { Box, Image } from '@chakra-ui/react'
 import Postfooter from './Postfooter'
 
+//Feedpost template
+
 const Feedpost = ({username, avatar, img}) => {
     return (
         <>

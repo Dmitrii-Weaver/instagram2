@@ -1,6 +1,8 @@
 import { Avatar, Box, Flex, Text } from '@chakra-ui/react'
 import React from 'react'
 
+//post header : author, ofo, date
+
 const Postheader = ({username, avatar}) => {
     return (
         <Flex justifyContent={"space-between"} alignItems={"center"} w={"full"} my={2}>

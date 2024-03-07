@@ -1,6 +1,8 @@
 import { Button, Container, Flex, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
+//basic navbar displayed whwn browsing feed while logged out
+
 const Navbar = () => {
     return (
         <Container maxW={"container.lg"} my={4}>
