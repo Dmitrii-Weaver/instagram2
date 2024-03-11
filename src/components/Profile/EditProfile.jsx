@@ -86,7 +86,6 @@ const EditProfile = ({ isOpen, onClose }) => {
                                         size='sm'
                                         w='full'
                                         _hover={{ bg: "blue.500" }}
-                                        
                                     >
                                         Submit
                                     </Button>
