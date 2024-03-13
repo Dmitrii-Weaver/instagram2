@@ -3,6 +3,9 @@ import { Avatar, Button, Center, Flex, FormControl, FormLabel, Heading, Input, M
 import { useRef, useState } from "react";
 import useAuthStore from "../../store/authStore"
 import usePreviewImage from "../../hooks/usePreviewImage";
+import useEditProfile from "../../hooks/useEditProfile";
+import useShowToast from "../../hooks/useShowToast";
+
 
 const EditProfile = ({ isOpen, onClose }) => {
     const [inputs, setInputs] = useState({
@@ -11,16 +14,24 @@ const EditProfile = ({ isOpen, onClose }) => {
         bio: ""
     })
 
-    const { selectedFile, handleImageChange, setSelectedFile } = usePreviewImage()
     const authUser = useAuthStore((state) => state.user)
-
     const fileRef = useRef(null)
+    const { selectedFile, handleImageChange, setSelectedFile } = usePreviewImage()
+    const {isUpdating, editProfile} = useEditProfile()
+    const showToast = useShowToast()
 
-    const handleEditProfile = () => {
-        console.log(inputs)
+
+
+    const handleEditProfile = async () => {
+        try {
+            await editProfile(inputs, selectedFile)
+            setSelectedFile(null)
+            onClose()
+        } catch (error) {
+            showToast("Error", error.message, "error")
+        }
     }
 
-    console.log(authUser.profilePicURL)
 
     return (
         <>
@@ -44,7 +55,7 @@ const EditProfile = ({ isOpen, onClose }) => {
                                         <Center w='full'>
                                             <Button w='full' onClick={() => fileRef.current.click()}>Edit Profile Picture</Button>
                                         </Center>
-                                        <Input type="file" hidden ref={fileRef} onChange={handleImageChange}/>
+                                        <Input type="file" hidden ref={fileRef} onChange={handleImageChange} />
                                     </Stack>
                                 </FormControl>
 
@@ -81,6 +92,7 @@ const EditProfile = ({ isOpen, onClose }) => {
                                         w='full'
                                         _hover={{ bg: "blue.500" }}
                                         onClick={handleEditProfile}
+                                        isLoading={isUpdating}
                                     >
                                         Submit
                                     </Button>
