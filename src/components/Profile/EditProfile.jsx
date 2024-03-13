@@ -1,33 +1,26 @@
 
-import {
-    Avatar,
-    Button,
-    Center,
-    Flex,
-    FormControl,
-    FormLabel,
-    Heading,
-    Input,
-    Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent,
-    ModalHeader,
-    ModalOverlay,
-    Stack,
-} from "@chakra-ui/react";
-import { useState } from "react";
+import { Avatar, Button, Center, Flex, FormControl, FormLabel, Heading, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Stack } from "@chakra-ui/react";
+import { useRef, useState } from "react";
+import useAuthStore from "../../store/authStore"
+import usePreviewImage from "../../hooks/usePreviewImage";
 
 const EditProfile = ({ isOpen, onClose }) => {
     const [inputs, setInputs] = useState({
-        fullname:"",
-        username:"",
-        bio:""
+        fullname: "",
+        username: "",
+        bio: ""
     })
 
+    const { selectedFile, handleImageChange, setSelectedFile } = usePreviewImage()
+    const authUser = useAuthStore((state) => state.user)
 
+    const fileRef = useRef(null)
 
+    const handleEditProfile = () => {
+        console.log(inputs)
+    }
 
+    console.log(authUser.profilePicURL)
 
     return (
         <>
@@ -46,27 +39,28 @@ const EditProfile = ({ isOpen, onClose }) => {
                                 <FormControl>
                                     <Stack direction={["column", "row"]} spacing={6}>
                                         <Center>
-                                            <Avatar size='xl' src={""} border={"2px solid white "} />
+                                            <Avatar size='xl' src={selectedFile || authUser.profilePicURL} border={"2px solid white "} />
                                         </Center>
                                         <Center w='full'>
-                                            <Button w='full'>Edit Profile Picture</Button>
+                                            <Button w='full' onClick={() => fileRef.current.click()}>Edit Profile Picture</Button>
                                         </Center>
+                                        <Input type="file" hidden ref={fileRef} onChange={handleImageChange}/>
                                     </Stack>
                                 </FormControl>
 
                                 <FormControl>
                                     <FormLabel fontSize={"sm"}>Full Name</FormLabel>
-                                    <Input placeholder={"Full Name"} size={"sm"} type={"text"} value={inputs.fullname} onChange={(e) => setInputs({...inputs, fullname: e.target.value})}/>
+                                    <Input placeholder={"Full Name"} size={"sm"} type={"text"} value={inputs.fullname || authUser.fullname} onChange={(e) => setInputs({ ...inputs, fullname: e.target.value })} />
                                 </FormControl>
 
                                 <FormControl>
                                     <FormLabel fontSize={"sm"}>Username</FormLabel>
-                                    <Input placeholder={"Username"} size={"sm"} type={"text"} value={inputs.username} onChange={(e) => setInputs({...inputs, username: e.target.value})}/>
+                                    <Input placeholder={"Username"} size={"sm"} type={"text"} value={inputs.username || authUser.username} onChange={(e) => setInputs({ ...inputs, username: e.target.value })} />
                                 </FormControl>
 
                                 <FormControl>
                                     <FormLabel fontSize={"sm"}>Bio</FormLabel>
-                                    <Input placeholder={"Bio"} size={"sm"} type={"text"} value={inputs.bio} onChange={(e) => setInputs({...inputs, bio: e.target.value})}/>
+                                    <Input placeholder={"Bio"} size={"sm"} type={"text"} value={inputs.bio || authUser.bio} onChange={(e) => setInputs({ ...inputs, bio: e.target.value })} />
                                 </FormControl>
 
                                 <Stack spacing={6} direction={["column", "row"]}>
@@ -86,6 +80,7 @@ const EditProfile = ({ isOpen, onClose }) => {
                                         size='sm'
                                         w='full'
                                         _hover={{ bg: "blue.500" }}
+                                        onClick={handleEditProfile}
                                     >
                                         Submit
                                     </Button>
