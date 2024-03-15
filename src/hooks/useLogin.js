@@ -1,4 +1,3 @@
-import React from 'react'
 import useShowToast from './useShowToast'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { auth, firestore } from '../firebase/firebase'
