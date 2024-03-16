@@ -50,7 +50,7 @@ const EditProfile = ({ isOpen, onClose }) => {
                                 <FormControl>
                                     <Stack direction={["column", "row"]} spacing={6}>
                                         <Center>
-                                            <Avatar size='xl' src={selectedFile || authUser.profilePicURL} border={"2px solid white "} />
+                                            <Avatar size='xl' src={selectedFile || authUser.profilePicUrl} border={"2px solid white "} />
                                         </Center>
                                         <Center w='full'>
                                             <Button w='full' onClick={() => fileRef.current.click()}>Edit Profile Picture</Button>
