@@ -2,10 +2,15 @@ import { Box, Flex, Link, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 import SuggestedHeader from './SuggestedHeader'
 import SuggestedUser from './SuggestedUser'
+import useGetSuggestedUsers from '../../hooks/useGetSuggestedUsers'
 
 //desplays a list of suggested users
 
 const SuggestedUsers = () => {
+    const { isLoading, suggestedUsers } = useGetSuggestedUsers()
+
+    if (isLoading) return null
+
     return (
         <VStack py={8} px={6} gap={4}>
             <SuggestedHeader />
@@ -18,9 +23,9 @@ const SuggestedUsers = () => {
                 </Text>
             </Flex>
 
-            <SuggestedUser name="SuggestedUser42" followers={1632} avatar="/1123.png"/>
-            <SuggestedUser name="RandomUser145" followers={213} avatar="/1124.png"/>
-            <SuggestedUser name="_le_who" followers={1} avatar="/1125.png"/>
+            {suggestedUsers.map(user => (
+                <SuggestedUser user={user} key={user.id} />
+            ))}
 
             <Box fontSize={12} color={"gray.500"} mt={5} alignSelf={"start"}>
                 © 2023 Bult by {" "}
