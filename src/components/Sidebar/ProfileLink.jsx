@@ -4,6 +4,7 @@ import useAuthStore from "../../store/authStore";
 
 const ProfileLink = () => {
 	const authUser = useAuthStore((state) => state.user);
+	
 
 	return (
 		<Tooltip
@@ -26,7 +27,7 @@ const ProfileLink = () => {
 				w={{ base: 10, md: "full" }}
 				justifyContent={{ base: "center", md: "flex-start" }}
 			>
-				<Avatar size={"sm"} src={authUser?.profilePicURL || ""} />
+				<Avatar size={"sm"} src={authUser?.profilePicUrl || ""} />
 				<Box display={{ base: "none", md: "block" }}>Profile</Box>
 			</Link>
 		</Tooltip>
