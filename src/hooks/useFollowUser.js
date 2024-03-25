@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useAuthStore from '../store/authStore'
 import useUserProfileStore from '../store/userProfileStore'
 import useShowToast from "./useShowToast"
@@ -8,11 +8,10 @@ import { firestore } from '../firebase/firebase'
 const useFollowUser = (userId) => {
     const [isUpdating, setIsUpdating] = useState(false)
     const [isFollowing, setIsFollowing] = useState(false)
-    const authUser = useAuthStore((state)=>state.user)
-    const setAuthUser = useAuthStore((state)=>state.setUser)
+    const authUser = useAuthStore((state) => state.user)
+    const setAuthUser = useAuthStore((state) => state.setUser)
     const { userProfile, setUserProfile } = useUserProfileStore()
     const showToast = useShowToast()
-
 
     const handleFollowUser = async () => {
         setIsUpdating(true)

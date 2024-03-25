@@ -52,7 +52,6 @@ const Gauth = ({ prefix }) => {
         }
     }
 
-
     return (
         <>
             <Flex alignItems={"center"} justifyContent={"center"} cursor={"pointer"}

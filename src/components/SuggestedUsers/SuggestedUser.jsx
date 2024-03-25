@@ -1,5 +1,5 @@
 import { Avatar, Box, Button, Flex, VStack } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React from 'react'
 import useFollowUser from "../../hooks/useFollowUser"
 import useAuthStore from '../../store/authStore'
 

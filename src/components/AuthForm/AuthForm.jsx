@@ -4,7 +4,6 @@ import Login from './Login'
 import Signup from './Signup'
 import Gauth from './Gauth'
 
-
 //Main Auth form
 
 const AuthForm = () => {

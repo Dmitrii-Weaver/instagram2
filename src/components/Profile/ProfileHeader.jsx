@@ -38,7 +38,6 @@ const ProfileHeader = () => {
                         </Button>
                     </Flex>}
 
-
                 </Flex>
                 <Flex alignItems={"center"} gap={{ base: 2, sm: 4 }}>
                     <Text fontSize={{ base: "xs", md: "sm" }}>

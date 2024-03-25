@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useAuthStore from '../store/authStore'
 import useShowToast from "./useShowToast"
-import { collection, doc, getDocs, limit, orderBy, query, where } from 'firebase/firestore'
+import { collection, getDocs, limit, orderBy, query, where } from 'firebase/firestore'
 import { firestore } from '../firebase/firebase'
 
 const useGetSuggestedUsers = () => {
@@ -41,7 +41,6 @@ const useGetSuggestedUsers = () => {
     }, [authUser, showToast])
 
     return { isLoading, suggestedUsers}
-
 
 }
 
