@@ -5,11 +5,13 @@ import { FaComment } from "react-icons/fa"
 import { MdDelete } from "react-icons/md"
 import Comment from '../Comments/Comment'
 import PostFooter from "../Feedposts/Postfooter"
+import useUserProfileStore from '../../store/userProfileStore'
 
 //profile post template
 
 const ProfilePost = ({ post }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const userProfile = useUserProfileStore((state) => state.userProfile)
   return (
     <>
 
@@ -37,11 +39,11 @@ const ProfilePost = ({ post }) => {
           <Flex alignItems={"center"} justifyContent={"center"} gap={50}>
             <Flex>
               <AiFillHeart size={20} />
-              <Text fontWeight={"bold"} ml={2}>75</Text>
+              <Text fontWeight={"bold"} ml={2}>{post.likes.length}</Text>
             </Flex>
             <Flex>
               <FaComment size={20} />
-              <Text fontWeight={"bold"} ml={2}>7</Text>
+              <Text fontWeight={"bold"} ml={2}>{post.comments.length}</Text>
             </Flex>
           </Flex>
         </Flex>
@@ -56,15 +58,15 @@ const ProfilePost = ({ post }) => {
           <ModalCloseButton />
           <ModalBody bg={"black"} pb={5}>
 
-            <Flex gap={4} w={{ base: "90%", sm: "70%", md: "full" }} mx={"auto"}>
+            <Flex gap={4} w={{ base: "90%", sm: "70%", md: "full" }} mx={"auto"} maxH={"90vh"} minH={"50vh"}>
               <Box borderRadius={4} overflow={"hidden"} border={"1px solid"} borderColor={"whiteAlpha.300"} flex={1.5}>
                 <Image src={post.imageURL} alt='profile post' />
               </Box>
               <Flex flex={1} flexDir={"column"} px={10} display={{ base: "none", md: "flex" }}>
                 <Flex alignItems={"center"} justifyContent={"space-between"}>
                   <Flex alignItems={"center"} gap={4}>
-                    <Avatar src="/profilepic.png" size={"sm"} name="user" />
-                    <Text fontWeight={"bold"} fontSize={12}>_username1</Text>
+                    <Avatar src={userProfile.profilePicUrl} size={"sm"} name="user" />
+                    <Text fontWeight={"bold"} fontSize={12}>{userProfile.username}</Text>
                   </Flex>
                   <Box _hover={{ bg: "whiteAlpha.300", color: "red.600" }} borderRadius={4} p={1}>
                     <MdDelete size={20} cursor={"pointer"} />
