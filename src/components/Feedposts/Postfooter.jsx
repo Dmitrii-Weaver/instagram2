@@ -1,12 +1,19 @@
 import { Box, Button, Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { CommentLogo, NotificationsLogo, SearchLogo, UnlikeLogo } from '../../assets/constants'
+import usePostComment from '../../hooks/usePostComment'
 
 //post footer : likes, comments, etc.
 
-const Postfooter = ({ username, isProfilePage }) => {
+const Postfooter = ({ post, username, isProfilePage }) => {
   const [liked, setLiked] = useState(false)
   const [likes, setLikes] = useState(120)
+  const {isCommenting, handlePostComment} = usePostComment()
+  const [comment, setComment] = useState("")
+  const handleSubmitComment = async () => {
+    await handlePostComment(post.id, comment)
+    setComment("")
+  }
 
   const handleLike = () => {
     if (liked) {
@@ -51,9 +58,9 @@ const Postfooter = ({ username, isProfilePage }) => {
       
       <Flex alignItems={"center"} gap={2} justifyContent={"space-between"} w={"full"}>
         <InputGroup>
-          <Input variant={"flushed"} placeholder='Add a comment...' color={"grey"} fontSize={14} />
+          <Input variant={"flushed"} placeholder='Add a comment...' color={"grey"} fontSize={14} onChange={(e) => setComment(e.target.value)} value={comment}/>
           <InputRightElement>
-            <Button fontSize={14} color={"blue.500"} fontWeight={600} cursor={"pointer"} _hover={{ color: "white" }} bg={"transparent"}>Post</Button>
+            <Button fontSize={14} color={"blue.500"} fontWeight={600} cursor={"pointer"} _hover={{ color: "white" }} bg={"transparent"} onClick={handleSubmitComment} isLoading={isCommenting}>Post</Button>
           </InputRightElement>
         </InputGroup>
       </Flex>
