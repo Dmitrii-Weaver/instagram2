@@ -1,21 +1,17 @@
-import { Box, Container, Flex, Skeleton, SkeletonCircle, VStack } from '@chakra-ui/react'
+import { Box, Container, Flex, Skeleton, SkeletonCircle, Text, VStack } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import Feedpost from './Feedpost'
+import useGetFeedPosts from '../../hooks/useGetFeedPosts'
 
 //Display posts in the feed
 
 const Feedposts = () => {
-  const [isLoading, setIsLoading] = useState(true)
+  const {isLoading, posts} = useGetFeedPosts()
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 2000)
-  }, [])
 
   return (
     <Container maxW={"container.sm"} py={10} px={2}>
-      {isLoading && [0, 1, 2, 3].map((_, idx) => (
+      {isLoading && [0, 1, 2].map((_, idx) => (
         <VStack key={idx} gap={4} alignItems={"flex-start"} mb={10}>
           <Flex gap={2}>
             <SkeletonCircle size={10} />
@@ -25,18 +21,16 @@ const Feedposts = () => {
             </VStack>
           </Flex>
           <Skeleton w={"full"}>
-            <Box h={"500px"}>123</Box>
+            <Box h={"400px"}>123</Box>
           </Skeleton>
         </VStack>
       ))}
 
-      {!isLoading && (
-        <>
-          <Feedpost username="username1" avatar="/img1.png" img="/img1.png" />
-          <Feedpost username="testuser2" avatar="/img2.png" img="/img2.png" />
-          <Feedpost username="1234uname" avatar="/img3.png" img="/img3.png" />
-          <Feedpost username="keklmao2" avatar="/img4.png" img="/img4.png" />
-        </>
+      {!isLoading && posts.length > 0 && posts.map((post) => <Feedpost key={post.id} post={post} /> ) }
+      {!isLoading && posts.length == 0 && (
+        <Text fontSize={"md"} color={"white"}>
+          Not following any users. Check out the suggested users on the right
+        </Text>
       )}
     </Container>
   )
