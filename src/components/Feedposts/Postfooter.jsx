@@ -1,10 +1,11 @@
-import { Box, Button, Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Input, InputGroup, InputRightElement, Text, useDisclosure } from '@chakra-ui/react'
 import React, { useRef, useState } from 'react'
 import { CommentLogo, NotificationsLogo, SearchLogo, UnlikeLogo } from '../../assets/constants'
 import usePostComment from '../../hooks/usePostComment'
 import useAuthStore from '../../store/authStore'
 import useLikePost from '../../hooks/useLikePost'
 import { timeAgo } from "../../utils/timeAgo";
+import CommentsModal from '../Modals/CommentsModal'
 
 //post footer : likes, comments, etc.
 
@@ -13,6 +14,9 @@ const Postfooter = ({ post, username, isProfilePage, creatorProfile }) => {
   const [comment, setComment] = useState("")
   const authUser = useAuthStore(state => state.user)
   const commentRef = useRef(null)
+  
+  const { handleLikePost, isLiked, isUpdating, likes } = useLikePost(post)
+  const {isOpen, onOpen, onClose} = useDisclosure()
 
 
 
@@ -21,7 +25,6 @@ const Postfooter = ({ post, username, isProfilePage, creatorProfile }) => {
     setComment("")
   }
 
-  const { handleLikePost, isLiked, isUpdating, likes } = useLikePost(post)
   return (
     <Box mb={10} marginTop={"auto"}>
       <Flex alignItems={"center"} gap={4} w={"full"} pt={0} mb={2} mt={4}>
@@ -52,10 +55,11 @@ const Postfooter = ({ post, username, isProfilePage, creatorProfile }) => {
             </Text>
           </Text>
           {post.comments.length > 0 && (
-            <Text fontSize="sm" color={"gray"} cursor={"pointer"}>
+            <Text fontSize="sm" color={"gray"} cursor={"pointer"} onClick={onOpen}>
               View all {post.comments.length} comments
             </Text>
           )}
+          {isOpen ? <CommentsModal isOpen={isOpen} onClose={onClose} post={post}/> :null} 
         </>
       )
       }
