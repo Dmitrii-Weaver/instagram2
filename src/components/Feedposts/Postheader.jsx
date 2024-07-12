@@ -3,7 +3,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import useFollowUser from '../../hooks/useFollowUser'
 
-//post header : author, ofo, date
+import { timeAgo } from "../../utils/timeAgo";
+
 
 const Postheader = ({ post, creatorProfile }) => {
     const {handleFollowUser, isFollowing, isUpdating} = useFollowUser(post.createdBy)
@@ -24,7 +25,7 @@ const Postheader = ({ post, creatorProfile }) => {
                         <Skeleton w={"100px"} h={"10px"} />
                     )}
                     <Box color={"gray.500"}>
-                        - 1w
+                        - {timeAgo(post.createdAt)}
                     </Box>
                 </Flex>
             </Flex>
