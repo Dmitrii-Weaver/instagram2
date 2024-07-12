@@ -1,6 +1,6 @@
 import { Box, Flex, Spinner } from '@chakra-ui/react'
 import React from 'react'
-import Sidebar from '../../components/Sidebar/SideBar'
+import Sidebar from '../../components/Sidebar/Sidebar'
 import { useLocation } from 'react-router-dom'
 import { auth } from '../../firebase/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
